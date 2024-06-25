@@ -2,21 +2,45 @@
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
-<DefaultLayout hideMainNavigation={true}>
-	
-		<div
-			class="flex flex-row flex-wrap align-items-center justify-content-evenly"
-		>
-			Hello World!
-		</div>
+<DefaultLayout>
+    <div
+        class="flex flex-column flex-wrap align-items-center justify-content-evenly"
+    >
+        <h1>The first of the last days!</h1>
+        <p class="text-center">
+            On Monday 24th June 2024, the residents of Te Aroha stirred slowly
+            under a heavy blanket of fog.
+        </p>
+        <p class="text-center">
+            Despite the heavy wet air and lack of sunshine, the team at the
+            fundraising shop put on their brightest appearance<br />for one last
+            photo to commemorate twenty years of service in the community!
+        </p>
+        <div class="captioned-image">
+            <img
+            src="/images/photos/P1260816-cropped.jpg"
+            width="894"
+            height="556"
+        />
+        <div class="caption p-3">Shelley, Helen, Dave and Mary welcome shoppers on the first day of the $1 clearance sale</div>
+    
+        </div>
+        </div>
 </DefaultLayout>
 
 <style>
-	.feature-card {
-		border: solid 3px transparent;
-	}
-	.feature-card:hover {
-		background-color: wheat;
-		border-color: goldenrod;
-	}
+    .feature-card {
+        border: solid 3px transparent;
+    }
+    .feature-card:hover {
+        background-color: wheat;
+        border-color: goldenrod;
+    }
+    .captioned-image {
+        display: flex;
+        flex-direction: column;
+    }
+    .caption {
+        color: #666666;
+    }
 </style>

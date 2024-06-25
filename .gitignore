@@ -1,2 +1,6 @@
 **/node_modules
-
+data/nginx/log/access.log
+data/nginx/log/error.log
+frontend/.pnp.cjs
+frontend/.pnp.loader.mjs
+frontend/.yarn

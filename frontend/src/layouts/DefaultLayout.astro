@@ -1,6 +1,8 @@
 ---
 import { Config } from "../Config";
-
+import "primereact/resources/primereact.css";
+import "primeicons/primeicons.css";
+import "primeflex/primeflex.css";
 interface Props {
     title?: string;
 }
@@ -12,17 +14,16 @@ const { title = Config.siteName } = Astro.props;
     <head>
         <meta charset="UTF-8" />
         <title>{title}</title>
-        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="icon" type="image/ico" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content="{Astro.generator}" />
-        <link href="/themes/lara-light-blue/theme.css" rel="stylesheet" />
     </head>
     <body class="main-body layout-compact">
         <header class="flex flex-column p-3">
             <div class="title flex flex-row">
                 <img
                     class="h-auto max-w-8rem lg:max-w-full"
-                    src="/logo.png"
+                    src="/images/logo.png"
                     width="120"
                     height="120"
                     alt="Logo"
@@ -52,14 +53,19 @@ const { title = Config.siteName } = Astro.props;
         font-family: "Roboto", sans-serif;
     }
     header {
+        background-color: #001174;
+        color: white;
+    }
+    header .title img{
+        filter: invert(1);
     }
     header h1 {
         font-family: "Chilanka", cursive;
-        color: #001174;
         font-size: 250%;
+        line-height: 250%;
     }
     main {
-        background-color: #a2a7ce;
+        color: #001174;
     }
     .p-component,
     .p-inputtext {
