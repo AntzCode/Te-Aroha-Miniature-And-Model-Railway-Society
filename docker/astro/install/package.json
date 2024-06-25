@@ -1,0 +1,17 @@
+{
+  "name": "frontend",
+  "description": "Client App for Te Aroha Miniature and Model Railway Society Inc.",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "yarn install && astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^2.3.0"
+  }
+}

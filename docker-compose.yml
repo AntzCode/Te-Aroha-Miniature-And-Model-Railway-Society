@@ -1,0 +1,35 @@
+version: '3.7'
+services:
+
+  astro:
+    build: './docker/astro/'
+    working_dir: /home/node/app
+    user: "node"
+    ports:
+      - 3003:3003
+    environment:
+      - NODE_ENV=development
+      - VIRTUAL_HOST=nan.global.dev
+      - VIRTUAL_PORT=3003
+    volumes:
+      - ./frontend:/home/node/app
+
+  nginx:
+    build: './docker/nginx/'
+    container_name: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./docker/certs:/etc/nginx/certs
+      - ./data/nginx/www:/var/www
+      - ./data/nginx/log:/var/log/nginx
+      - ./data/nginx/config/nginx.conf:/etc/nginx/nginx.conf
+      - ./data/nginx/config/conf.d/client_max_body_size.conf:/etc/nginx/conf.d/client_max_body_size.conf
+      - ./data/nginx/config/conf.d/default_dev.conf:/etc/nginx/conf.d/default.conf
+      - ./data/letsencrypt/live:/etc/letsencrypt/live
+      - ./data/letsencrypt/ssl-dhparams.pem:/etc/letsencrypt/ssl-dhparams.pem
+      - ./data/letsencrypt/options-ssl-nginx.conf:/etc/letsencrypt/options-ssl-nginx.conf
+    restart: unless-stopped
+    command: [ nginx-debug, '-g', 'daemon off;' ]

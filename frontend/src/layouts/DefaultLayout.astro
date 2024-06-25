@@ -1,0 +1,75 @@
+---
+import { Config } from "../Config";
+
+interface Props {
+    title?: string;
+}
+
+const { title = Config.siteName } = Astro.props;
+---
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{title}</title>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="{Astro.generator}" />
+        <link href="/themes/lara-light-blue/theme.css" rel="stylesheet" />
+    </head>
+    <body class="main-body layout-compact">
+        <header class="flex flex-column p-3">
+            <div class="title flex flex-row">
+                <img
+                    class="h-auto max-w-8rem lg:max-w-full"
+                    src="/logo.png"
+                    width="120"
+                    height="120"
+                    alt="Logo"
+                />
+                <h1 class="m-3">{Config.siteName}</h1>
+            </div>
+        </header>
+        <main class="p-3">
+            <slot>Default Layout</slot>
+        </main>
+        <footer class="p-3">
+            &copy; {Config.siteName}
+        </footer>
+    </body>
+</html>
+<style>
+    @font-face {
+        font-family: "Roboto";
+        src: url("/fonts/Roboto/Roboto-Regular.ttf");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+    }
+    header {
+    }
+    header h1 {
+        font-family: "Chilanka", cursive;
+        color: #001174;
+        font-size: 250%;
+    }
+    main {
+        background-color: #a2a7ce;
+    }
+    .p-component,
+    .p-inputtext {
+        font-size: 0.75rem !important;
+    }
+    footer {
+        color: #ffffff;
+        font-size: 125%;
+        border-top: solid 2px;
+        border-top-color: #001174;
+        background-color: #001174;
+    }
+</style>
